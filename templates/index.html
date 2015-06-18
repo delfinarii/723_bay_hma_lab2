@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	</head>
+	<body>
+        <div class="container">
+            <h1 style="text-align:center;">Лабораторная работа №2</h1>
+
+            <h2>Список товаров</h2>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Название</th>
+                  <th>Характеристики</th>
+                  <th>Производитель</th>
+                  <th>Год выпуска</th>
+                </tr>
+                </thead>
+                <tbody>
+                    {% for d in devices %}
+                        <tr>
+                            <th scope="row">{{ d.id }}</th>
+                            <td>{{ d.name }}</td>
+                            <td>{{ d.char }}</td>
+                            <td>{{ d.company }}</td>
+                            <td>{{ d.year }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <h2>Список магазинов</h2>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Адрес</th>
+                  <th>Телефон</th>
+                  <th>Режим работы</th>
+                </tr>
+                </thead>
+                <tbody>
+                    {% for s in shops %}
+                        <tr>
+                            <th scope="row">{{ s.id }}</th>
+                            <td>{{ s.address }}</td>
+                            <td>{{ s.phone }}</td>
+                            <td>{{ s.works }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <h2>Наличие товара в магазинах</h2>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Товар</th>
+                  <th>Магазин</th>
+                  <th>Цена</th>
+                  <th>Количество</th>
+                </tr>
+                </thead>
+                <tbody>
+                    {% for a in buys %}
+                        <tr>
+                            <th scope="row">{{ a.id }}</th>
+                            <td>{{ a.device.name }}</td>
+                            <td>{{ a.shop.name }}</td>
+                            <td>{{ a.price }}</td>
+                            <td>{{ a.emount }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <h4></h4>
+            <h4></h4>
+        </div>
+	</body>
+</html>
